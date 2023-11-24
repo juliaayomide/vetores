@@ -1,29 +1,40 @@
-public class FatorialVetor { 
+import java.util.Scanner; 
+public class IntersecaoVetores { 
     public static void main(String[] args) { 
 
-        int[] vetorA = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}; 
-        int[] vetorB = new int[vetorA.length]; 
+        Scanner scanner = new Scanner(System.in); 
 
-        System.out.println("Vetor A:"); 
+        int[] vetorA = new int[10]; 
+        int[] vetorB = new int[10]; 
+        int[] vetorC = new int[10]; 
 
-        for (int i = 0; i < 15; i++) { 
-            System.out.print(vetorA[i] + " "); 
+        System.out.println("Digite os valores para o vetor A:"); 
+        for (int i = 0; i < 10; i++) { 
+            System.out.print("Valor " + (i + 1) + ": "); 
+            vetorA[i] = scanner.nextInt(); 
         } 
 
-        System.out.println(); 
-        System.out.println("Vetor B (fatoriais):"); 
+        System.out.println("Digite os valores para o vetor B:"); 
+        for (int i = 0; i < 10; i++) { 
+            System.out.print("Valor " + (i + 1) + ": "); 
+            vetorB[i] = scanner.nextInt(); 
+        } 
 
-        for (int i = 0; i < 15; i++) { 
-            int fatorial = 1; 
-            for (int j = 1; j <= vetorA[i]; j++) { 
-                fatorial *= j; 
+        int tamanhoC = 0; 
+
+        for (int elementoA : vetorA) { 
+            for (int elementoB : vetorB) { 
+                if (elementoA == elementoB) { 
+                    vetorC[tamanhoC++] = elementoA; 
+                    break;  
+                } 
             } 
-
-            vetorB[i] = fatorial; 
-            System.out.print(fatorial + " "); 
         } 
-        System.out.println(); 
+        System.out.println("Vetor C (Interseção de A e B):"); 
+
+        for (int i = 0; i < tamanhoC; i++) { 
+            System.out.print(vetorC[i] + " "); 
+        } 
     } 
 } 
-
  
